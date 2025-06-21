@@ -12,7 +12,7 @@ struct CloneView: View {
         ScrollView{
             Image("Iron")
                 .resizable()
-                .aspectRatio(contentMode:.fit)
+                .aspectRatio(contentMode:.fit)//gone
                 .scaledToFill()
                 .frame(width: 410, height: 400)
                 .clipped()

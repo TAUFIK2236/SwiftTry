@@ -135,7 +135,7 @@ private struct DestinationCard1:View {
     }
 
     
-
+//hard
 
 #Preview {
     ContentView()

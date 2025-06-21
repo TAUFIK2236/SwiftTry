@@ -19,7 +19,7 @@ let samplePlace:[Destination] = [
     Destination(image:"newyork", title: "New York", country: "INdonasia")
 ]
 
-struct DestinationCard:View {
+struct DestinationCard:View {//anyway
     let place: Destination
     
     var body: some View {
