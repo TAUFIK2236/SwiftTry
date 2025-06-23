@@ -44,9 +44,9 @@ struct ContentView: View {
             }
         Color.blue.opacity(0.15)
             .ignoresSafeArea()
-            SwipeDemoView()
+            LearningPage()
             .tabItem{
-                Image(systemName:"heart")
+                Image(systemName:"person.circle.fill")
                 Text("saved")
                 
             }

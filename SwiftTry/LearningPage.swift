@@ -56,7 +56,8 @@ struct LearningPage: View {
                         profiles.append(newProfile)
                         name = ""
                         password = ""
-                    }
+                    }.frame(maxWidth:.infinity).background(Color.blue).foregroundColor(.white)
+                        .padding()
                 }
                 
                 Section(header:Text("Saved Profiles")){
