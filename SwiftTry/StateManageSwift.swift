@@ -12,6 +12,13 @@ class NameViewModel:ObservableObject{
     @Published var name1 : String=""
 }
 
+class CounterModel:ObservableObject{
+    @Published var count = 0
+    func increment(){
+        count += 1
+    }
+}
+
 struct StateManageSwift: View {
     
     
@@ -19,6 +26,7 @@ struct StateManageSwift: View {
     @State private var isOn = false
     
     @ObservedObject var viewModel:NameViewModel
+    @StateObject private var viewModel1 = CounterModel()
     
     var body: some View {
         VStack(spacing:20){
@@ -36,6 +44,9 @@ struct StateManageSwift: View {
             Text("Hellow, \(viewModel.name1)")
             
             TextField("Enter your name",text:$viewModel.name1).textFieldStyle(.roundedBorder).padding()
+            
+            Text("Counter \(viewModel1.count)")
+            Button("Add 1"){viewModel1.increment()}
         }
     }
 }
