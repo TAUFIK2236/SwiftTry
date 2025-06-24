@@ -18,6 +18,12 @@ class CounterModel:ObservableObject{
         count += 1
     }
 }
+class UserSettings: ObservableObject{
+    @Published var username : String = "Guest"
+}
+
+
+
 
 struct StateManageSwift: View {
     
@@ -27,6 +33,7 @@ struct StateManageSwift: View {
     
     @ObservedObject var viewModel:NameViewModel
     @StateObject private var viewModel1 = CounterModel()
+    @StateObject private var settings = UserSettings()
     
     var body: some View {
         VStack(spacing:20){
@@ -47,6 +54,8 @@ struct StateManageSwift: View {
             
             Text("Counter \(viewModel1.count)")
             Button("Add 1"){viewModel1.increment()}
+            justSimpleView().environmentObject(settings)
+
         }
     }
 }
@@ -60,4 +69,15 @@ struct ToggleSwitch:View {
 
 #Preview {
     StateManageSwift(viewModel: NameViewModel())
+        
+}
+
+struct justSimpleView: View {
+    @EnvironmentObject var settings:UserSettings
+    var body: some View {
+        
+        Text("Username : \(settings.username)").font(.title)
+        TextField("Edit username",text:$settings.username)
+            .textFieldStyle(.roundedBorder)
+    }
 }
