@@ -23,7 +23,9 @@ struct StorageUI: View {
             Button("Save Name"){
                 UserDefaults.standard.set(name, forKey:"MyName")
             }
-           
+            Button("Load Name"){
+                name = UserDefaults.standard.string(forKey:"MyName") ?? ""
+            }
         }
     }
 }
@@ -31,3 +33,4 @@ struct StorageUI: View {
 #Preview {
     StorageUI()
 }
+
